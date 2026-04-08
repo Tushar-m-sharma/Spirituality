@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hole Within — A Student Referral Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111612;
+    --bg2: #161e18;
+    --bg3: #1c2820;
+    --surface: #1e2e24;
+    --surface2: #243828;
+    --border: #2a3e30;
+    --border2: #324a38;
+    --accent: #4a9e74;
+    --accent2: #3a7a5a;
+    --accent-dim: #2a5a40;
+    --text: #e8e2d4;
+    --text2: #b8b0a0;
+    --text3: #7a8e7e;
+    --text4: #4a6050;
+    --amber: #c8883a;
+    --amber-bg: #2a1e10;
+    --teal: #3a8a8a;
+    --teal-bg: #0e2020;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(17,22,18,0.96);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text3);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text3);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 6rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 400;
+    line-height: 1.0;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--text2);
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text3);
+    margin-bottom: 2.5rem;
+    max-width: 560px;
+    line-height: 1.5;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    color: var(--text2);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #0a1410;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 2px;
+    transition: background 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-primary:hover {
+    background: #5ab884;
+    text-decoration: none;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text2);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    padding: 12px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--border2);
+    transition: border-color 0.2s, color 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent2);
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2rem;
+    font-size: 0.75rem;
+    color: var(--text4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-scroll::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--text4);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    color: var(--text2);
+    line-height: 1.8;
+    max-width: 640px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* WHAT IS SECTION */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+  }
+
+  .what-cell {
+    background: var(--bg);
+    padding: 2rem 1.75rem;
+  }
+
+  .what-cell-icon {
+    width: 32px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .what-cell-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .what-cell-body {
+    font-size: 0.9rem;
+    color: var(--text2);
+    line-height: 1.75;
+  }
+
+  /* CLINICAL TOOLS */
+  .tools-section {
+    background: var(--bg2);
+  }
+
+  .tool-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .tool-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .tool-badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  .tool-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .tool-desc {
+    font-size: 0.85rem;
+    color: var(--text3);
+    margin-left: auto;
+    font-style: italic;
+  }
+
+  .tool-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .tool-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tool-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .tool-table td {
+    padding: 1rem 1.5rem;
+    vertical-align: top;
+  }
+
+  .tool-table td:first-child {
+    width: 28%;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    padding-top: 1.1rem;
+  }
+
+  .tool-table td:last-child {
+    font-size: 0.9rem;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .tool-question {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+    display: block;
+  }
+
+  /* REFERRAL DIRECTORY */
+  .dir-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    padding: 7px 16px;
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text3);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .filter-btn.active,
+  .filter-btn:hover {
+    background: var(--accent-dim);
+    border-color: var(--accent2);
+    color: var(--accent);
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .resource-card {
+    background: var(--bg);
+    padding: 1.5rem;
+    transition: background 0.2s;
+  }
+
+  .resource-card:hover {
+    background: var(--bg3);
+  }
+
+  .resource-tag {
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text4);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tag-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tag-dot.peer { background: var(--accent); }
+  .tag-dot.veteran { background: var(--amber); }
+  .tag-dot.mind { background: var(--teal); }
+  .tag-dot.telehealth { background: #8a7ac8; }
+  .tag-dot.crisis { background: #c87a7a; }
+
+  .resource-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .resource-desc {
+    font-size: 0.85rem;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .resource-link {
+    font-size: 0.8rem;
+    color: var(--accent2);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .resource-link:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .resource-phone {
+    font-size: 0.8rem;
+    color: var(--text3);
+    margin-top: 4px;
+  }
+
+  .resource-card[data-hidden="true"] {
+    display: none;
+  }
+
+  /* CASE SECTION */
+  .case-section {
+    background: var(--bg2);
+  }
+
+  .case-pullquote {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.3;
+    border-left: 3px solid var(--accent);
+    padding-left: 2rem;
+    margin: 2.5rem 0;
+  }
+
+  .case-body {
+    font-size: 0.95rem;
+    color: var(--text2);
+    line-height: 1.85;
+    max-width: 660px;
+  }
+
+  .case-cite {
+    font-size: 0.75rem;
+    color: var(--accent2);
+    vertical-align: super;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .about-note {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text3);
+    line-height: 1.75;
+  }
+
+  .about-note strong {
+    color: var(--text2);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--text3);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-size: 0.78rem;
+    color: var(--text4);
+    line-height: 1.7;
+    max-width: 320px;
+  }
+
+  .footer-refs h4 {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text4);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-refs ol {
+    padding-left: 1.2rem;
+    font-size: 0.75rem;
+    color: var(--text4);
+    line-height: 1.7;
+    max-width: 400px;
+  }
+
+  /* MOBILE NAV */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+
+    .hero { padding: 5rem 1.25rem 3rem; min-height: 85vh; }
+    .hero-scroll { left: 1.25rem; }
+
+    section { padding: 3.5rem 1.25rem; }
+
+    .what-grid { grid-template-columns: 1fr; }
+
+    .tool-header { flex-wrap: wrap; }
+    .tool-desc { margin-left: 0; margin-top: 4px; }
+    .tool-table td:first-child { width: 35%; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    .footer-inner { flex-direction: column; }
+    .footer-refs ol { max-width: 100%; }
+
+    .resource-grid { grid-template-columns: 1fr; }
+
+    .case-pullquote { font-size: 1.3rem; padding-left: 1.25rem; }
+  }
+
+  @media (max-width: 480px) {
+    .tool-table td { padding: 0.75rem 1rem; }
+    .tool-table td:first-child { width: 40%; font-size: 0.7rem; }
+    .hero-cta-row { flex-direction: column; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  }
+
+  /* SMOOTH REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-brand">The Hole Within</div>
+  <ul class="nav-links">
+    <li><a href="#what">What is spirituality</a></li>
+    <li><a href="#tools">Clinical tools</a></li>
+    <li><a href="#directory">Referral directory</a></li>
+    <li><a href="#case">The case</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#what" onclick="closeMobile()">What is spirituality</a>
+  <a href="#tools" onclick="closeMobile()">Clinical tools</a>
+  <a href="#directory" onclick="closeMobile()">Referral directory</a>
+  <a href="#case" onclick="closeMobile()">The case</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-eyebrow">A student referral guide · Addiction &amp; veteran health</div>
+  <h1 class="hero-title">The<br><em>hole</em><br>within.</h1>
+  <p class="hero-subtitle">Spiritual care in addiction recovery — what to ask, how to ask it, and where to refer.</p>
+  <p class="hero-desc">Developed during a community placement at a DVA-funded residential rehabilitation centre in rural New South Wales. For medical students and junior clinicians working with addiction and veteran populations in Queensland and rural NSW.</p>
+  <div class="hero-cta-row">
+    <a href="#tools" class="btn-primary">Clinical tools ↓</a>
+    <a href="#directory" class="btn-secondary">Referral directory ↓</a>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+</section>
+
+<hr class="divider">
+
+<!-- WHAT IS SPIRITUALITY -->
+<section id="what">
+  <div class="section-inner">
+    <div class="section-label reveal">Definition</div>
+    <h2 class="section-title reveal">What is spirituality<br>in recovery?</h2>
+    <p class="section-body reveal">Spirituality is not synonymous with religion — and it is not synonymous with meaning alone. The WHO defines spiritual wellbeing as a fourth dimension of health encompassing meaning, purpose, identity, connection, transcendence, community, and culture. Meaning-making is one clinically significant component of that broader construct.</p>
+
+    <div class="what-grid">
+      <div class="what-cell reveal">
+        <div class="what-cell-icon"></div>
+        <div class="what-cell-title">Meaning &amp; purpose</div>
+        <div class="what-cell-body">Having a reason to stay sober. Knowing what recovery is oriented <em>towards</em>, not just what it is moving away from.</div>
+      </div>
+      <div class="what-cell reveal">
+        <div class="what-cell-icon"></div>
+        <div class="what-cell-title">Identity &amp; community</div>
+        <div class="what-cell-body">Rebuilding a sense of self beyond substance use. Belonging to something — a group, a culture, a shared practice.</div>
+      </div>
+      <div class="what-cell reveal">
+        <div class="what-cell-icon"></div>
+        <div class="what-cell-title">Connection</div>
+        <div class="what-cell-body">To other people, to nature, to culture, to something beyond the self. Hari's synthesis: the opposite of addiction is not sobriety — it is connection.</div>
+      </div>
+      <div class="what-cell reveal">
+        <div class="what-cell-icon"></div>
+        <div class="what-cell-title">Transcendence</div>
+        <div class="what-cell-body">A sense of something larger than oneself — whether spiritual, natural, cultural, or relational. Present across secular and religious frameworks alike.</div>
+      </div>
+    </div>
+
+    <div class="about-note reveal" style="margin-top: 2rem; max-width: 640px;">
+      <strong>Why it matters clinically:</strong> Cook's systematic review identifies spiritual wellbeing as a significant independent predictor of long-term recovery outcomes and reduced relapse — not a correlate of other protective factors, but a predictor in its own right. Fewer than 20% of addiction clinicians routinely assess it.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CLINICAL TOOLS -->
+<section id="tools" class="tools-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Clinical tools</div>
+    <h2 class="section-title reveal">What to ask —<br>and how to ask it.</h2>
+    <p class="section-body reveal">Two validated brief spiritual history frameworks that integrate into a standard biopsychosocial assessment in under two minutes. Use them as conversation openers — they are not scored instruments.</p>
+
+    <div style="margin-top: 2.5rem;">
+      <div class="tool-card reveal">
+        <div class="tool-header">
+          <div class="tool-badge">Framework</div>
+          <div class="tool-name">FICA</div>
+          <div class="tool-desc">Puchalski &amp; Romer, 2000</div>
+        </div>
+        <table class="tool-table">
+          <tr>
+            <td>F — Faith &amp; belief</td>
+            <td>
+              <span class="tool-question">"Do you have spiritual beliefs or a sense of faith that gives your life meaning?"</span>
+              If no: <em>"What gives your life meaning or purpose?"</em>
+            </td>
+          </tr>
+          <tr>
+            <td>I — Importance</td>
+            <td>
+              <span class="tool-question">"How important is spirituality in your life and in your recovery?"</span>
+              <em>"Has it influenced how you cope with your situation?"</em>
+            </td>
+          </tr>
+          <tr>
+            <td>C — Community</td>
+            <td>
+              <span class="tool-question">"Are you part of a spiritual or faith community?"</span>
+              <em>"Is this a source of support for you?"</em>
+            </td>
+          </tr>
+          <tr>
+            <td>A — Address in care</td>
+            <td>
+              <span class="tool-question">"How would you like me to address this in your care?"</span>
+              This opens the referral conversation.
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-header">
+          <div class="tool-badge">Framework</div>
+          <div class="tool-name">HOPE</div>
+          <div class="tool-desc">Anandarajah &amp; Hight, 2001</div>
+        </div>
+        <table class="tool-table">
+          <tr>
+            <td>H — Sources of hope</td>
+            <td>
+              <span class="tool-question">"What are your sources of hope, strength, comfort, and peace?"</span>
+              <em>"What do you hold onto during difficult times?"</em>
+            </td>
+          </tr>
+          <tr>
+            <td>O — Organised religion</td>
+            <td>
+              <span class="tool-question">"Are you part of a religious or spiritual community?"</span>
+              <em>"Does it support you, and how?"</em>
+            </td>
+          </tr>
+          <tr>
+            <td>P — Personal spirituality</td>
+            <td>
+              <span class="tool-question">"Do you have personal spiritual beliefs independent of organised religion?"</span>
+              <em>"What aspects of your spirituality or spiritual practices do you find most helpful in your recovery?"</em>
+            </td>
+          </tr>
+          <tr>
+            <td>E — Effects on care</td>
+            <td>
+              <span class="tool-question">"Has being unwell affected your ability to do things that usually help you spiritually?"</span>
+              <em>"Are there any aspects of medical care that conflict with your spiritual beliefs?"</em>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="about-note reveal">
+        <strong>When to use FICA vs HOPE:</strong> Both are appropriate. FICA is slightly more direct and suits brief consultations. HOPE takes a broader approach and may suit longer assessments or patients where you want to explore sources of meaning before asking about formal belief. Neither requires spiritual expertise — they are conversation openers, not diagnostic tools.
+      </div>
+
+      <div class="about-note reveal" style="margin-top: 1rem; border-left: 3px solid #c87a5a;">
+        <strong>Red flag — moral injury in veterans:</strong> Spiritual distress presenting as treatment resistance, shame, or existential emptiness — rather than fear-based symptoms — may indicate moral injury. This requires meaning-focused intervention and specialist referral, not pharmacotherapy alone. Consider Open Arms (DVA) or a clinician trained in Adaptive Disclosure Therapy.
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- REFERRAL DIRECTORY -->
+<section id="directory">
+  <div class="section-inner">
+    <div class="section-label reveal">Referral directory</div>
+    <h2 class="section-title reveal">What to do<br>with the answer.</h2>
+    <p class="section-body reveal">Services mapped to Queensland and rural New South Wales. Telehealth options are included for patients where local services are limited. Verify current availability before referring.</p>
+
+    <div class="dir-filters reveal" style="margin-top: 2rem;">
+      <button class="filter-btn active" data-filter="all">All services</button>
+      <button class="filter-btn" data-filter="peer">Peer support</button>
+      <button class="filter-btn" data-filter="veteran">Veteran-specific</button>
+      <button class="filter-btn" data-filter="mind">Mind-body</button>
+      <button class="filter-btn" data-filter="telehealth">Telehealth</button>
+      <button class="filter-btn" data-filter="crisis">Crisis</button>
+    </div>
+
+    <div class="resource-grid reveal">
+
+      <div class="resource-card" data-category="peer">
+        <div class="resource-tag"><span class="tag-dot peer"></span>Peer support</div>
+        <div class="resource-name">Alcoholics Anonymous</div>
+        <div class="resource-desc">Peer-led recovery community. 12-step model with explicitly spiritual framework. Meetings in person and online across QLD and rural NSW including regional areas.</div>
+        <a href="https://www.aa.org.au" class="resource-link" target="_blank">aa.org.au →</a>
+      </div>
+
+      <div class="resource-card" data-category="peer">
+        <div class="resource-tag"><span class="tag-dot peer"></span>Peer support</div>
+        <div class="resource-name">Narcotics Anonymous</div>
+        <div class="resource-desc">Peer support for people recovering from drug use. 12-step model. Rural and online meetings available. Good option alongside or after residential treatment.</div>
+        <a href="https://www.na.org.au" class="resource-link" target="_blank">na.org.au →</a>
+      </div>
+
+      <div class="resource-card" data-category="peer">
+        <div class="resource-tag"><span class="tag-dot peer"></span>Peer support</div>
+        <div class="resource-name">SMART Recovery Australia</div>
+        <div class="resource-desc">Non-spiritual, evidence-based peer support alternative to 12-step programs. Strong option for patients who do not connect with spiritual frameworks. In-person and online.</div>
+        <a href="https://www.smartrecoveryaustralia.com.au" class="resource-link" target="_blank">smartrecoveryaustralia.com.au →</a>
+      </div>
+
+      <div class="resource-card" data-category="veteran">
+        <div class="resource-tag"><span class="tag-dot veteran"></span>Veteran-specific</div>
+        <div class="resource-name">Open Arms — DVA</div>
+        <div class="resource-desc">Free counselling for veterans and families. Covers PTSD, moral injury, substance use, and mental health. Available nationally with telehealth for rural areas. DVA-funded.</div>
+        <a href="https://www.openarms.gov.au" class="resource-link" target="_blank">openarms.gov.au →</a>
+        <div class="resource-phone">1800 011 046 — 24 hours</div>
+      </div>
+
+      <div class="resource-card" data-category="veteran">
+        <div class="resource-tag"><span class="tag-dot veteran"></span>Veteran-specific</div>
+        <div class="resource-name">Phoenix Australia</div>
+        <div class="resource-desc">Centre for Posttraumatic Mental Health. Clinical guidelines and resources for moral injury and PTSD in veterans. Useful for clinicians and for directing patients to evidence-based care.</div>
+        <a href="https://www.phoenixaustralia.org" class="resource-link" target="_blank">phoenixaustralia.org →</a>
+      </div>
+
+      <div class="resource-card" data-category="veteran">
+        <div class="resource-tag"><span class="tag-dot veteran"></span>Veteran-specific</div>
+        <div class="resource-name">Mates4Mates</div>
+        <div class="resource-desc">Support for current and former ADF members and families. Recovery centres in QLD. Peer support, counselling, and physical rehabilitation. Particularly strong in regional Queensland.</div>
+        <a href="https://www.mates4mates.org" class="resource-link" target="_blank">mates4mates.org →</a>
+      </div>
+
+      <div class="resource-card" data-category="mind">
+        <div class="resource-tag"><span class="tag-dot mind"></span>Mind-body</div>
+        <div class="resource-name">Meditation &amp; mindfulness</div>
+        <div class="resource-desc">Smiling Mind (free app), Headspace, and structured MBSR programs where available. Evidence base for addiction and PTSD is growing. Good self-directed option for rural patients.</div>
+        <a href="https://www.smilingmind.com.au" class="resource-link" target="_blank">smilingmind.com.au →</a>
+      </div>
+
+      <div class="resource-card" data-category="mind">
+        <div class="resource-tag"><span class="tag-dot mind"></span>Mind-body</div>
+        <div class="resource-name">Breathwork</div>
+        <div class="resource-desc">Increasingly used in trauma and addiction recovery, particularly for veterans. Look for certified practitioners locally. Breathwork Online Australia offers structured programs for rural patients.</div>
+        <a href="https://www.breathworkonline.com.au" class="resource-link" target="_blank">breathworkonline.com.au →</a>
+      </div>
+
+      <div class="resource-card" data-category="telehealth">
+        <div class="resource-tag"><span class="tag-dot telehealth"></span>Telehealth / digital</div>
+        <div class="resource-name">Hello Sunday Morning — Daybreak</div>
+        <div class="resource-desc">Digital support for people wanting to change their relationship with alcohol. Strong community component. Ideal for rural patients without access to local peer support services.</div>
+        <a href="https://www.hellosundaymorning.org" class="resource-link" target="_blank">hellosundaymorning.org →</a>
+      </div>
+
+      <div class="resource-card" data-category="telehealth">
+        <div class="resource-tag"><span class="tag-dot telehealth"></span>Telehealth / digital</div>
+        <div class="resource-name">Drug &amp; Alcohol Counselling Online</div>
+        <div class="resource-desc">Free, confidential online counselling for people in rural and remote NSW. No referral required. Covers a range of substance use concerns with qualified counsellors.</div>
+        <a href="https://www.daco.org.au" class="resource-link" target="_blank">daco.org.au →</a>
+      </div>
+
+      <div class="resource-card" data-category="telehealth">
+        <div class="resource-tag"><span class="tag-dot telehealth"></span>Telehealth / digital</div>
+        <div class="resource-name">My Vibe Tribe — QLD Health</div>
+        <div class="resource-desc">Queensland Health's online community support for people in recovery. Peer-based digital community. Useful for patients in areas with limited face-to-face options.</div>
+        <a href="https://www.health.qld.gov.au" class="resource-link" target="_blank">health.qld.gov.au →</a>
+      </div>
+
+      <div class="resource-card" data-category="crisis">
+        <div class="resource-tag"><span class="tag-dot crisis"></span>Crisis support</div>
+        <div class="resource-name">Lifeline</div>
+        <div class="resource-desc">24-hour crisis support and suicide prevention. Available by phone, online chat, and text. Not addiction-specific but appropriate for patients in acute distress during recovery.</div>
+        <a href="https://www.lifeline.org.au" class="resource-link" target="_blank">lifeline.org.au →</a>
+        <div class="resource-phone">13 11 14 — 24 hours</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- THE CASE -->
+<section id="case" class="case-section">
+  <div class="section-inner">
+    <div class="section-label reveal">The case that built this resource</div>
+    <h2 class="section-title reveal">A soldier's story.</h2>
+
+    <div class="case-pullquote reveal">"I am trying to fill the hole within."</div>
+
+    <p class="case-body reveal">
+      During a five-week placement at a residential rehabilitation centre in rural New South Wales, I worked with an Australian Defence Force veteran who had been deployed to the Philippines following Typhoon Haiyan in 2013. His role was body retrieval. He returned with PTSD and did not seek treatment — instead, he began using methamphetamine to suppress nightmares. This pattern is consistent with Khantzian's self-medication hypothesis: substances selected specifically for their capacity to manage an intolerable affective state.<span class="case-cite">1</span>
+    </p>
+
+    <p class="case-body reveal" style="margin-top: 1.25rem;">
+      When his use was discovered, he was discharged from the military. That discharge produced a second wound — what Litz and colleagues term moral injury: conscience-based damage to a person's moral and spiritual sense of self.<span class="case-cite">2</span> He described feeling aimless. Purposeless. Without identity. His substance use escalated across years of repeated detoxifications, each of which addressed the substance without addressing what the substance was for.
+    </p>
+
+    <p class="case-body reveal" style="margin-top: 1.25rem;">
+      At forty-eight, he suffered a myocardial infarction and was resuscitated. He reported a near-death experience — describing it as dying on the table, and what followed as being born again. He began seeking a new identity: one oriented toward meaning rather than away from pain. He turned heavily to spirituality as a framework for reconstructing what substance use had dismantled.
+    </p>
+
+    <p class="case-body reveal" style="margin-top: 1.25rem;">
+      Near-death experiences are documented in the medical literature, occurring in up to 20% of cardiac arrest survivors and consistently associated with reduced fear of death and lasting reorientation of values.<span class="case-cite">3</span> What happened to this patient was clinically recognisable — post-traumatic growth<span class="case-cite">4</span> and quantum change.<span class="case-cite">5</span> And it raises a question: we cannot prescribe a near-death experience. But we can ask about the hole within.
+    </p>
+
+    <div class="about-note reveal" style="margin-top: 2.5rem; max-width: 640px;">
+      <strong>Why this resource exists:</strong> Working with this patient — and others — I realised I faced three obstacles. I did not know what to ask. I did not know how to ask it. And I did not know what to do with the answer. This resource is an attempt to address all three.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label reveal">About this resource</div>
+    <h2 class="section-title reveal">Built during placement.<br>For students like you.</h2>
+
+    <div class="about-grid">
+      <div>
+        <p class="section-body reveal">This resource was developed during a five-week community placement at a DVA-funded residential rehabilitation centre in rural New South Wales, as part of a medical school community placement program.</p>
+        <p class="section-body reveal" style="margin-top: 1.25rem;">It is designed for medical students and junior clinicians working with addiction and veteran populations in Queensland and rural New South Wales. It is not a clinical protocol — it is a starting point for a conversation that most patients have never been invited to have.</p>
+      </div>
+      <div>
+        <div class="about-note reveal">
+          <strong>Key references</strong><br><br>
+          <ol style="padding-left: 1.2rem; font-size: 0.82rem; line-height: 1.8; color: var(--text3);">
+            <li>Khantzian EJ. Self-medication hypothesis. <em>Harvard Review of Psychiatry.</em> 1997.</li>
+            <li>Litz BT et al. Moral injury in war veterans. <em>Clinical Psychology Review.</em> 2009.</li>
+            <li>Greyson B. Near-death experiences. <em>The Psychiatrist.</em> 2014.</li>
+            <li>Tedeschi RG, Calhoun LG. Post-traumatic growth. <em>J Traumatic Stress.</em> 1996.</li>
+            <li>Miller WR, C'de Baca J. <em>Quantum Change.</em> Guilford Press; 2001.</li>
+            <li>Cook CCH. Addiction and spirituality. <em>Addiction.</em> 2004.</li>
+            <li>Lucchetti G et al. Spirituality in clinical practice. <em>J Religion &amp; Health.</em> 2021.</li>
+            <li>Pargament KI. <em>Spiritually Integrated Psychotherapy.</em> Guilford Press; 2007.</li>
+            <li>WHO Commission on SDH. <em>Closing the Gap.</em> WHO; 2008.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">The Hole Within</div>
+      <div class="footer-sub">A student referral guide for spiritual care in addiction recovery. Developed during a community placement in rural NSW. For medical students and junior clinicians in QLD and rural NSW.<br><br>All patient material de-identified. Verify service availability before referring.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  function closeMobile() { menu.classList.remove('open'); }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.resource-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.removeAttribute('data-hidden');
+        } else {
+          card.setAttribute('data-hidden', 'true');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
